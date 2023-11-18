@@ -1,40 +1,22 @@
+// Tela1.js
 import React from 'react';
-import { StyleSheet, TouchableOpacity, Text } from 'react-native';
+import { View, Text } from 'react-native';
+import Navbar from './src/components/Navbar';
 
-interface Props{
-    onPress: () => void,
-    lblButton:string
-}
+const Tela1 = ({ navigation }) => {
+  return (
+    <View>
+      <Navbar
+        title="Tela 1"
+        onPressBack={() => navigation.goBack()}
+        onPressOption1={() => console.log('Opção 1 pressionada')}
+        onPressOption2={() => console.log('Opção 2 pressionada')}
+      />
+      <View style={{ padding: 20 }}>
+        <Text>Conteúdo da Tela 1</Text>
+      </View>
+    </View>
+  );
+};
 
-
-export const RouderdButton = ( {onPress, lblButton}:Props ) =>{
-    return(
-        <TouchableOpacity 
-             style={styles.roudedButton}
-             onPress={() => onPress ()}
-             
-        >
-            <Text style={styles.lblButton}>{ lblButton }</Text>
-        </TouchableOpacity>
-    )
-}
-
-const styles = StyleSheet.create({
-    roudedButton:{
-        width: '100%',
-        height: 40,
-        backgroundColor: '#ff2800',
-        borderRadius: 15,
-        justifyContent: 'center',
-        alignItems: 'center',
-
-    },
-    
-
-    lblButton:{
-       color: '#fff',
-       fontSize: 16,
-       fontWeight: 'bold',
-       textAlign: 'center',
-      },
-    });
+export default Tela1;

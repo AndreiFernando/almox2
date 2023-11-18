@@ -7,7 +7,7 @@ interface Props{
 }
 
 
-export const RouderdButton = ( {onPress, lblButton}:Props ) =>{
+export default function RouderdButton  ( {onPress, lblButton}:Props ) {
     return(
         <TouchableOpacity 
              style={styles.roudedButton}
@@ -21,18 +21,19 @@ export const RouderdButton = ( {onPress, lblButton}:Props ) =>{
 
 const styles = StyleSheet.create({
     roudedButton:{
-        width: '100%',
-        height: 40,
-        backgroundColor: '#ff2800',
-        borderRadius: 15,
+        width: 391,
+        height: 50,
+        backgroundColor: '#ffffff',
+        borderRadius: 10,
         justifyContent: 'center',
         alignItems: 'center',
+        border: 'black'
 
     },
     
 
     lblButton:{
-       color: '#fff',
+       color: '#000000',
        fontSize: 16,
        fontWeight: 'bold',
        textAlign: 'center',
