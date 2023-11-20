@@ -3,6 +3,7 @@ import { StyleSheet, View, TextInput, KeyboardType, Text } from 'react-native';
 
 
 interface props {
+    
     placeholder: string,
     KeyboardType: KeyboardType,
     value: string,
@@ -18,6 +19,7 @@ export default function CustomTextInput({ placeholder, KeyboardType, value, prop
 
 
             <TextInput style={styles.txtForm}
+            
                 placeholder={placeholder}
                 keyboardType={KeyboardType}
                 value={value}

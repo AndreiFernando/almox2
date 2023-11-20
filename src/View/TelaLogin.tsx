@@ -32,8 +32,8 @@ export default function TelaLogin() {
           <CustomTextInput
             placeholder='Senha'
             KeyboardType='default'
-            value={email}
-            property='email'
+            value={senha}
+            property='senha'
             onChangeText={onChange}
 
           />

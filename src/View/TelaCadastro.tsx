@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
-import CustomTextInput from './src/components/CustomTextInput';
-import HomeViewModel from './src/View/ViewModel';
-import RouderdButton from './src/components/botaoGeral';
+import CustomTextInput from '../components/CustomTextInput';
+import HomeViewModel from './ViewModel';
+import RouderdButton from '../components/botaoGeral';
 
 export default function App() {
   const { email, senha, onChange, register } = HomeViewModel();
