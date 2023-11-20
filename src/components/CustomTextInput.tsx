@@ -1,9 +1,9 @@
 import React from 'react'
-import { StyleSheet, View, TextInput, KeyboardType, Text} from 'react-native';
+import { StyleSheet, View, TextInput, KeyboardType, Text } from 'react-native';
+
 
 interface props {
     placeholder: string,
-    label: string,
     KeyboardType: KeyboardType,
     value: string,
     property: string,
@@ -12,10 +12,10 @@ interface props {
 }
 
 
-export default function CustomTextInput ({ placeholder, label, KeyboardType, value, property, secureTextEntry = false, onChangeText }: props) {
+export default function CustomTextInput({ placeholder, KeyboardType, value, property, secureTextEntry = false, onChangeText }: props) {
     return (
-        <View style={styles.formInput}>
-            <Text style={styles.txtLabel}>{label}</Text>
+        <View style={styles.container}>
+
 
             <TextInput style={styles.txtForm}
                 placeholder={placeholder}
@@ -24,15 +24,13 @@ export default function CustomTextInput ({ placeholder, label, KeyboardType, val
                 secureTextEntry={secureTextEntry}
                 onChangeText={text => onChangeText(property, text)}
             />
+
         </View>
     )
 }
 const styles = StyleSheet.create({
-    formInput: {
-        justifyContent: 'center',
-        alignItems: 'center'
-
-
+    container: {
+        alignSelf: 'center'
     },
     txtLabel: {
         fontSize: 16,
@@ -42,6 +40,8 @@ const styles = StyleSheet.create({
         width: 391,
         height: 50,
         borderRadius: 10,
-        
+        backgroundColor: 'white',
+        paddingLeft: 5
+
     },
 });

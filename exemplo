@@ -1,42 +1,18 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { AntDesign } from '@expo/vector-icons'; // Certifique-se de ter o pacote de ícones instalado
+import { View, Text } from 'react-native';
+import Navbar from './src/components/Navbar';
 
-const Navbar = ({ username }) => {
-    return (
-        <View style={styles.container}>
-            {/* Ícone de seta no canto superior esquerdo */}
-            <View style={styles.arrow}>
-                <TouchableOpacity onPress={() => console.log('Voltar')} style={{}}>
-                    <AntDesign name="arrowleft" size={24} color="white" />
-                </TouchableOpacity>
-            </View>
-
-            {/* Texto no canto inferior esquerdo */}
-            <View>
-                <Text style={{ color: 'white', fontSize: 18 }}>Olá {username}, bem-vindo</Text>
-
-                {/* Ícone de usuário no canto superior direito */}
-                <TouchableOpacity onPress={() => console.log('Abrir perfil')}>
-                    <AntDesign name="user" size={24} color="white" />
-                </TouchableOpacity>
-            </View>
-        </View>
-    );
+const Tela1 = ({ navigation }) => {
+  return (
+    <View>
+      <Navbar
+        title="Tela 1"
+        onPressBack={() => navigation.goBack()}
+        onPressOption1={() => console.log('Opção 1 pressionada')}
+        onPressOption2={() => console.log('Opção 2 pressionada')}
+      />
+    </View>
+  );
 };
 
-const styles = StyleSheet.create({
-    container: {
-        height: 155,
-        backgroundColor: '#00ADB5',
-    },
-
-    arrow: {
-
-    }
-
-});
-
-
-export default Navbar;
-
+export default Tela1;

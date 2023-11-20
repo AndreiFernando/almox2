@@ -1,8 +1,8 @@
 import React from 'react'
 import { View, Image, StyleSheet, Text, ScrollView } from 'react-native'
-import CustomTextInput from './src/components/CustomTextInput';
-import HomeViewModel from './src/View/ViewModel';
-import RouderdButton from './src/components/botaoGeral';
+import CustomTextInput from '../components/CustomTextInput';
+import HomeViewModel from './ViewModel';
+import RouderdButton from '../components/botaoGeral';
 import { CheckBox } from 'react-native-elements';
 
 export default function TelaLogin() {
