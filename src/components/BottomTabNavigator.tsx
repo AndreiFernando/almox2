@@ -1,12 +1,14 @@
 // BottomTabNavigator.js
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+//npm install @react-navigation/native @react-navigation/bottom-tabs
 
 //caminhos
-//import Home from './pages/Home';
-//import Adicionar from './pages/Adicionar';
-//import Preferencias from './pages/Preferencias';
+import Home from '../pages/Home';
+import Adicionar from '../pages/Adicionar';
+import Preferencias from '../pages/Preferencias';
 import { Ionicons } from '@expo/vector-icons';
+//npm install expo/vector-icons
 
 const Tab = createBottomTabNavigator();
 

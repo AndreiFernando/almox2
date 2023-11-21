@@ -3,9 +3,6 @@ const HomeViewModel = () => {
     const [values, setValues] = useState ({
         email: '',
         senha: '',
-        nome:'',
-        sobrenome:'',
-        
     });
 
     const onChange = (property: string, value: any) => {
