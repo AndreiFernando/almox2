@@ -22,20 +22,10 @@ export default function Home() {
           <Text>Conteúdo</Text>
         </View>
 
-        <View style={styles.content}>
-          <Text>Conteúdo</Text>
-        </View>
         
-        <View style={styles.content}>
-          <Text>Conteúdo</Text>
-        </View>
-
-        <View style={styles.content}>
-          <Text>Conteúdo</Text>
-        </View>
         
       </ScrollView>
-
+      
     </SafeAreaView>
   );
 }
