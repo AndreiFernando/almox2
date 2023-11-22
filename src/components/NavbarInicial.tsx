@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons'; // Certifique-se de ter o pacote de ícones instalado
 
-const Navbar = ({ username }) => {
+const NavbarInicial = ({ username }) => {
     return (
         <View style={styles.container}>
             {/* Texto no canto inferior esquerdo */}
@@ -37,5 +37,5 @@ const styles = StyleSheet.create({
 });
 
 
-export default Navbar;
+export default NavbarInicial;
 

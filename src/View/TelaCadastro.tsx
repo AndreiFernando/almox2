@@ -4,7 +4,7 @@ import CustomTextInput from '../components/CustomTextInput';
 import HomeViewModel from './ViewModel';
 import RouderdButton from '../components/botaoGeral';
 
-export default function App() {
+export default function TelaCadastro() {
   const { email, senha, onChange, register } = HomeViewModel();
   return (
     <View style={styles.container}>

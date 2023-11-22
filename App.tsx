@@ -1,96 +1,79 @@
+// BottomTabNavigator.js
 import React from 'react';
-import { View, StyleSheet, Text } from 'react-native';
-import CustomTextInput from './src/components/CustomTextInput';
-import HomeViewModel from './src/View/ViewModel';
-import RouderdButton from './src/components/botaoGeral';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
+//caminhos****
+import Home from './src/pages/Home';
+import Adicionar from './src/pages/Adicionar';
+import Preferencias from './src/pages/Preferencias';
+import { Ionicons } from '@expo/vector-icons';
 
-export default function App() {
-  const { email, senha, onChange, register } = HomeViewModel();
+const Tab = createBottomTabNavigator();
+
+const BottomTabNavigator = () => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.titulo}>
-        Registre-se
-      </Text>
+    <NavigationContainer>
+      <Tab.Navigator
+        screenOptions={{
+          tabBarShowLabel: false,
+          tabBarStyle: {
+            backgroundColor: '#393E46',
+            borderTopWidth: 0,
+            borderRadius: 16,
+            height: 60,
+            position: 'absolute',
+          },
+        }}
+      >
+        <Tab.Screen
+          name="Home"
+          component={Home}
+          options={{
+            headerShown: false,
+            tabBarIcon: ({ color, size, focused }) => {
+              if (focused) {
+                return <Ionicons name="home" size={25} color="#00ADB5" />;
+              }
 
-      <CustomTextInput
-        placeholder='Usuario'
-        KeyboardType='default'
-        value={email}
-        property='Usuario'
-        onChangeText={onChange}
-
-      />
-
-      <CustomTextInput
-        placeholder='Email'
-        KeyboardType='default'
-        value={email}
-        property='email'
-        onChangeText={onChange}
-
-      />
-
-      <CustomTextInput
-        placeholder='Senha'
-        KeyboardType='default'
-        value={senha}
-        property='senha'
-        onChangeText={onChange}
-
-      />
-
-      <CustomTextInput
-        placeholder='Confirme sua senha'
-        KeyboardType='default'
-        value={senha}
-        property='senha'
-        onChangeText={onChange}
-
-      />
-      <Text style={styles.info}>
-        Ao se registrar, você está de acordo com nossos <Text style={styles.termos}>termos de uso e nossa política de privacidade.</Text>
-      </Text>
-      <View style={styles.botaoGeral}>
-        <RouderdButton
-          lblButton='CADASTRAR'
-          onPress={() => register()}
+              return <Ionicons name="home-outline" size={25} color="#00ADB5" />;
+            },
+          }}
         />
-      </View>
 
-      <Text style={styles.texto}>
-        Já tem uma conta?<Text style={styles.termos}> Conecte-se</Text>
-      </Text>
-    </View>
-  )
-}
+        <Tab.Screen
+          name="Adicionar"
+          component={Adicionar}
+          options={{
+            headerShown: false,
+            tabBarIcon: ({ color, size, focused }) => {
+              if (focused) {
+                return <Ionicons name="add-circle" size={45} color="#00ADB5" />;
+              }
 
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#00ADB5',
-    flex: 1,
-    justifyContent: 'space-evenly'
-  },
-  titulo: {
-    fontWeight: 'bold',
-    fontSize: 27,
-    color: 'white',
-    textAlign: 'center'
-  },
-  info: {
-    width: 391,
-    color: 'white',
-    alignSelf: 'center'
-  },
+              return (
+                <Ionicons name="add-circle-outline" size={45} color="#00ADB5" />
+              );
+            },
+          }}
+        />
 
-  termos: {
-    fontWeight: 'bold'
-  },
+        <Tab.Screen
+          name="Preferencias"
+          component={Preferencias}
+          options={{
+            headerShown: false,
+            tabBarIcon: ({ color, size, focused }) => {
+              if (focused) {
+                return <Ionicons name="cog-outline" size={35} color="#00ADB5" />;
+              }
 
-  botaoGeral: {
-    alignItems: 'center'
-  },
-  texto: {
-    color: 'white',
-    textAlign: 'center'
-  }
-})
+              return <Ionicons name="cog" size={35} color="#00ADB5" />;
+            },
+          }}
+        />
+      </Tab.Navigator>
+    </NavigationContainer>
+  );
+};
+
+export default BottomTabNavigator;
