@@ -1,9 +1,9 @@
 // Navbar.js
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons'; // Certifique-se de instalar o pacote @expo/vector-icons
 
-const Navbar = ({ title, onPressBack, onPressOption1, onPressOption2 }) => {
+export const Navbar = ({ title, onPressBack, onPressOption1, onPressOption2 }) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.backButton} onPress={onPressBack}>
@@ -22,7 +22,7 @@ const Navbar = ({ title, onPressBack, onPressOption1, onPressOption2 }) => {
   );
 };
 
-const styles = StyleSheet.create ({
+const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'space-between',

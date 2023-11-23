@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 
-const Navbar = ({ onPressBack, onPressOption1, onPressOption2 }) => {
+export const Navbar = ({ onPressBack, onPressOption1, onPressOption2 }) => {
   const [selectedOption, setSelectedOption] = useState(null);
 
   const handlePressOption = (option) => {
@@ -45,12 +45,12 @@ const styles = StyleSheet.create({
     height: 155,
     alignItems: 'center',
     paddingTop: 20,
-    flexDirection: 'column',     justifyContent: 'space-between', 
-    paddingHorizontal: 16, 
+    flexDirection: 'column', justifyContent: 'space-between',
+    paddingHorizontal: 16,
   },
   backButton: {
-    marginTop: 20, 
-    alignSelf: 'flex-start', 
+    marginTop: 20,
+    alignSelf: 'flex-start',
   },
   title: {
     color: 'white',
@@ -61,10 +61,10 @@ const styles = StyleSheet.create({
   buttons: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    width: '100%', 
+    width: '100%',
   },
   optionButton: {
-    paddingVertical: 8,   
+    paddingVertical: 8,
   },
   selectedOption: {
     borderBottomWidth: 2,
