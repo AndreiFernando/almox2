@@ -57,3 +57,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   }
 });
+/*
+<View>
+<Navbar></Navbar>
+<SafeAreaView style={styles.container}>
+  <View style={styles.calendarioInfo}>
+    <Text>janeiro, 2024</Text>
+    <Text>ver mais</Text>
+  </View>
+</SafeAreaView>
+</View>
+  calendarioInfo: {
+    marginHorizontal: 15,
+    color: '#383838',
+  }
+  */
