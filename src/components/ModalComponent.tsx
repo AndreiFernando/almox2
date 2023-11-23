@@ -1,10 +1,15 @@
+// ModalComponent.js
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, TextInput } from 'react-native';
 import Modal from 'react-native-modal';
 
-const ModalComponent = ({ isVisible, closeModal }) => {
+const ModalComponent = ({ isVisible, onClose }) => {
+  const [patrimonio, setPatrimonio] = useState('');
+  const [item, setItem] = useState('');
+
   const handleButtonPress = () => {
-    closeModal();
+    // Lógica para aplicar as informações (pode ser adicionada aqui)
+    onClose();
   };
 
   return (
@@ -18,15 +23,30 @@ const ModalComponent = ({ isVisible, closeModal }) => {
       <View style={styles.modalContent}>
         <View style={styles.header}>
           <Text style={styles.headerText}>Solicitações</Text>
-          <TouchableOpacity onPress={handleButtonPress} style={styles.closeButton}>
+          <TouchableOpacity onPress={onClose} style={styles.closeButton}>
             <Text>X</Text>
           </TouchableOpacity>
         </View>
-        
+
         <View style={styles.content}>
-          <Text>Conteúdo do Modal</Text>
+          <Text style={styles.leftText}>Digite o Patrimônio:</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Digite o patrimônio"
+            value={patrimonio}
+            onChangeText={(text) => setPatrimonio(text)}
+          />
+
+          <Text style={styles.leftText}>Item:</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Digite o item"
+            value={item}
+            onChangeText={(text) => setItem(text)}
+          />
+
           <TouchableOpacity onPress={handleButtonPress} style={styles.modalButton}>
-            <Text style={styles.modalButtonText}>aplicar</Text>
+            <Text style={styles.modalButtonText}>Aplicar</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -45,25 +65,41 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     backgroundColor: 'white',
-    padding: 22,
+    padding: 0,
     justifyContent: 'center',
     alignItems: 'center',
   },
   header: {
     backgroundColor: '#00ADB5',
-    padding: 10,
+    padding: 20,
     flexDirection: 'row',
     alignItems: 'center',
     width: '100%',
+    justifyContent: 'space-between',
   },
   headerText: {
     color: 'white',
-    marginRight: 180,
+    marginLeft: 10,
   },
   content: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    width: '100%',
+    padding: 30,
+  },
+  leftText: {
+    alignSelf: 'flex-start',
+    marginBottom: 25,
+  },
+  input: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 0,
+    marginBottom: 10,
+    width: '100%',
+    paddingLeft: 10,
+    borderBottomWidth: 2,
   },
   closeButton: {
     color: 'white',
@@ -74,8 +110,8 @@ const styles = StyleSheet.create({
   },
   modalButton: {
     position: 'absolute',
-    bottom: 0,
-    right: -90,
+    bottom: 12,
+    right: 12,
     padding: 10,
     backgroundColor: '#00ADB5',
     borderRadius: 4,
@@ -91,10 +127,11 @@ const styles = StyleSheet.create({
 export default ModalComponent;
 
 
-/*importação 
 
+
+/* Seu arquivo principal (App.js)
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import ModalComponent from './ModalComponent';
 
 const App = () => {
@@ -104,27 +141,17 @@ const App = () => {
     setModalVisible(!isModalVisible);
   };
 
-  const closeModal = () => {
-    setModalVisible(false);
-  };
-
   return (
-    <View style={styles.container}>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <TouchableOpacity onPress={toggleModal}>
         <Text>ABRIR MODAL</Text>
       </TouchableOpacity>
 
-      <ModalComponent isVisible={isModalVisible} closeModal={closeModal} />
+      <ModalComponent isVisible={isModalVisible} onClose={toggleModal} />
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
+export default App;
+*/
 
-export default App; */
