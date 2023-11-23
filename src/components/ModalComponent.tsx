@@ -89,3 +89,42 @@ const styles = StyleSheet.create({
 });
 
 export default ModalComponent;
+
+
+/*importação 
+
+import React, { useState } from 'react';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import ModalComponent from './ModalComponent';
+
+const App = () => {
+  const [isModalVisible, setModalVisible] = useState(false);
+
+  const toggleModal = () => {
+    setModalVisible(!isModalVisible);
+  };
+
+  const closeModal = () => {
+    setModalVisible(false);
+  };
+
+  return (
+    <View style={styles.container}>
+      <TouchableOpacity onPress={toggleModal}>
+        <Text>ABRIR MODAL</Text>
+      </TouchableOpacity>
+
+      <ModalComponent isVisible={isModalVisible} closeModal={closeModal} />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
+
+export default App; */
