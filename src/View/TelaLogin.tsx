@@ -1,20 +1,24 @@
 import React from 'react'
-import { View, Image, StyleSheet, Text, ScrollView } from 'react-native'
+import { View, Image, StyleSheet, Text, TouchableOpacity} from 'react-native'
 import CustomTextInput from '../components/CustomTextInput';
 import HomeViewModel from './ViewModel';
 import RouderdButton from '../components/botaoGeral';
 import { CheckBox } from 'react-native-elements';
+import { useNavigation } from '@react-navigation/native';
+import { RootStackParamList } from '../../App';
+import { StackNavigationProp } from '@react-navigation/stack';
 
-export default function TelaLogin() {
+const TelaLogin = () => {
   const { email, senha, onChange, register } = HomeViewModel();
   const [isChecked1, setChecked1] = React.useState(false);
+  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
   return (
   
       <View style={styles.container}>
         <View style={styles.containerLogo}>
           <Image
-            source={require('./assets/img/senac-logo.png')}
+            source={require('../../assets/img/senac-logo.png')}
             style={styles.logo} />
         </View>
 
@@ -22,7 +26,7 @@ export default function TelaLogin() {
           <CustomTextInput
             placeholder='Usuario'
             KeyboardType='default'
-            value={senha}
+            value={email}
             property='senha'
             onChangeText={onChange}
 
@@ -60,9 +64,14 @@ export default function TelaLogin() {
         </View>
 
         <View style={styles.containerTexto}>
+          
+        <TouchableOpacity onPress={() => navigation.navigate('TelaCadastro')}>      
+
           <Text style={styles.Cadastro}>
             Ainda não possui uma conta? <Text style={styles.texto}>Cadastre-se</Text>
           </Text>
+
+          </TouchableOpacity>
         </View>
       </View>
     
@@ -125,3 +134,4 @@ const styles = StyleSheet.create({
   }
 
 });
+export default TelaLogin;

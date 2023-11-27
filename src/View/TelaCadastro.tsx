@@ -1,11 +1,15 @@
 import React from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, Text, Touchable, TouchableOpacity } from 'react-native';
 import CustomTextInput from '../components/CustomTextInput';
 import HomeViewModel from './ViewModel';
 import RouderdButton from '../components/botaoGeral';
+import { useNavigation } from '@react-navigation/native';
+import { RootStackParamList } from '../../App';
+import { StackNavigationProp } from '@react-navigation/stack';
 
-export default function TelaCadastro() {
+const TelaCadastro = () => {
   const { email, senha, onChange, register } = HomeViewModel();
+  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
   return (
     <View style={styles.container}>
       <Text style={styles.titulo}>
@@ -56,11 +60,12 @@ export default function TelaCadastro() {
           onPress={() => register()}
         />
       </View>
-
+      <TouchableOpacity onPress={() => navigation.navigate('TelaLogin')}>      
       <Text style={styles.texto}>
         Já tem uma conta?<Text style={styles.termos}> Conecte-se</Text>
       </Text>
-    </View>
+      </TouchableOpacity>    
+      </View>
   )
 }
 
@@ -93,4 +98,6 @@ const styles = StyleSheet.create({
     color: 'white',
     textAlign: 'center'
   }
-})
+});
+
+export default TelaCadastro;

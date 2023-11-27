@@ -6,8 +6,7 @@ interface Props{
     lblButton:string
 }
 
-
-export default function RouderdButton  ( {onPress, lblButton}:Props ) {
+const RouderdButton = ( {onPress, lblButton}:Props ) => {
     return(
         <TouchableOpacity 
              style={styles.roudedButton}
@@ -39,3 +38,5 @@ const styles = StyleSheet.create({
        textAlign: 'center',
       },
     });
+    
+    export default RouderdButton;
