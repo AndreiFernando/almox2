@@ -1,45 +1,28 @@
-import React, {useState} from "react";
-
+import React, { useState } from "react";
 const HomeViewModel = () => {
-    const [values, setValues] = useState ({
-        nome: '',
-        sobrenome: '',
-        email: '',
-        senha: '',
-        confirmeSenha: ''
-    });
+  const [values, setValues] = useState({
 
-    const onChange = (property: string, value: any) => {
-        setValues ({...values, [property]:value});
-    }
-    const register = async () => {
-        try {
-          const response = await fetch('http://192.168.18.46:3000/register', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(values),
-          });
-          console.log('Response:', response);
-          if (response.ok) {
-            console.log('User registered successfully');
-            
-          } else {
-            console.error('Error registering user:', response.status);
-            
-          }
-        } catch (error) {
-          console.error('Error registering user:', error.message);
-          
-        }
-      };
+    email: '',
+    senha: '',
+    nome: '',
+    sobrenome: '',
+    confirmeSenha: ''
 
-    return {
-        ...values,
-        onChange,
-        register
-    }
+  });
+
+  const onChange = (property: string, value: any) => {
+    setValues({ ...values, [property]: value });
+  }
+
+  const register = () => {
+    console.log(JSON.stringify(values))
+  }
+
+  return {
+    ...values,
+    onChange,
+    register
+  }
 }
 
 export default HomeViewModel;
