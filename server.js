@@ -6,9 +6,9 @@ const logger = require('morgan');
 const cors = require('cors');
 
 const statusRoutes = require('./routes/statusRoutes');
-const tipoRoutes = require('./routes/tipoRoutes');
 const cadastroRoutes = require('./routes/cadastroRoutes');
 const usuarioRoutes = require('./routes/usuarioRoutes');
+const tipoRoutes = require('./routes/tipoRoutes');
 
 const port = process.env.PORT || 3000;
 
@@ -24,8 +24,8 @@ app.disable('x-powered.by');
 
 app.set('port', port)
 
-statusRoutes(app);
 tipoRoutes(app);
+statusRoutes(app);
 cadastroRoutes(app);
 usuarioRoutes(app);
 
