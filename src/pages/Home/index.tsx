@@ -36,7 +36,6 @@ export const TelaHome = () => {
           <Tarefa tarefaTitulo='Portas' tarefaDesc="Manutenção nas portas da unidade"/>
         </ScrollView>
       </View>
-      <BottomTabNavigator></BottomTabNavigator>
     </SafeAreaView>
   );
 }
