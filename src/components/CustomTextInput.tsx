@@ -13,7 +13,7 @@ interface props {
 }
 
 
-export default function CustomTextInput({ placeholder, KeyboardType, value, property, secureTextEntry = false, onChangeText }: props) {
+const CustomTextInput = ({ placeholder, KeyboardType, value, property, secureTextEntry = false, onChangeText }: props) => {
     return (
         <View style={styles.container}>
 
@@ -47,3 +47,5 @@ const styles = StyleSheet.create({
 
     },
 });
+
+export default CustomTextInput;
