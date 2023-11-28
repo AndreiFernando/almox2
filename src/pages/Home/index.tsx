@@ -1,14 +1,21 @@
-import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity, ScrollView} from 'react-native';
 import { Navbar } from '../../components/NavbarInicial'
 import { BtnCalendario } from '../../components/BtnCalendario';
 import { BtnCalendarioAtivo } from '../../components/BtnCalendarioAtivo';
 import { TarefaAtiva } from '../../components/TarefaAtiva';
 import { Tarefa } from '../../components/Tarefa';
+import { BottomTabNavigator } from '../../components/BottomTabNavigator';
 
-export default function Home() {
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from '../../../App';
+
+export const TelaHome = () => {
+  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+  
   return (
     <SafeAreaView style={styles.body}>
-      <Navbar></Navbar>
+      <Navbar username={undefined}></Navbar>
       <View style={styles.container}>
         <View style={styles.calendarioInfo}>
           <Text style={styles.calendarioData}>janeiro, 2024</Text>
@@ -23,11 +30,11 @@ export default function Home() {
           <BtnCalendario dataDay='04' dataWeekDay='Qui'/>
           <BtnCalendario dataDay='05' dataWeekDay='Sex'/>
         </View>
-        <View style={styles.tarefasContainer}>
+        <ScrollView style={styles.tarefasContainer}>
           <TarefaAtiva tarefaTitulo='Cadeiras' tarefaDesc='Clique para saber mais'/>
           <Tarefa tarefaTitulo='Lâmpadas' tarefaDesc='Serviço de trocas de lâmpadas'/>
           <Tarefa tarefaTitulo='Portas' tarefaDesc="Manutenção nas portas da unidade"/>
-        </View>
+        </ScrollView>
       </View>
     </SafeAreaView>
   );
@@ -71,5 +78,7 @@ const styles = StyleSheet.create({
   },
   tarefasContainer: {
     marginLeft: 100,
+    marginBottom: 45,
   },
 });
+export default TelaHome;
