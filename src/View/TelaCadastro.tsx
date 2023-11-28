@@ -8,7 +8,7 @@ import { RootStackParamList } from '../../App';
 import { StackNavigationProp } from '@react-navigation/stack';
 
 const TelaCadastro = () => {
-  const { email, senha, onChange, register } = HomeViewModel();
+  const { nome, sobrenome, email, senha, confirmeSenha, onChange, register } = HomeViewModel();
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
   return (
     <View style={styles.container}>
@@ -17,13 +17,22 @@ const TelaCadastro = () => {
       </Text>
 
       <CustomTextInput
-        placeholder='Usuario'
+        placeholder='Nome'
         KeyboardType='default'
-        value={email}
-        property='Usuario'
+        value={nome}
+        property='nome'
         onChangeText={onChange}
 
-      />
+  />
+  
+  <CustomTextInput
+        placeholder='Sobrenome'
+        KeyboardType='default'
+        value={sobrenome}
+        property='sobrenome'
+        onChangeText={onChange}
+
+  />
 
       <CustomTextInput
         placeholder='Email'
@@ -43,14 +52,15 @@ const TelaCadastro = () => {
 
       />
 
-      <CustomTextInput
+     <CustomTextInput
         placeholder='Confirme sua senha'
         KeyboardType='default'
-        value={senha}
-        property='senha'
+        value={confirmeSenha}
+        property='confirmeSenha'
         onChangeText={onChange}
 
-      />
+/>
+
       <Text style={styles.info}>
         Ao se registrar, você está de acordo com nossos <Text style={styles.termos}>termos de uso e nossa política de privacidade.</Text>
       </Text>

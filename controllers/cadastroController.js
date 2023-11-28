@@ -2,25 +2,25 @@ const Cadastro = require('../models/cadastro');
 
 module.exports = {
     register(req, res) {
-        const status = req.body;
+        const cadastro = req.body;
 
-        Cadastro.create(status, (
+        Cadastro.create(cadastro, (
             err,
             data
         ) => {
             if (err) {
-                return res.status(501).json({
+                return res.cadastro(501).json({
                     success: false,
-                    Message: 'Erro ao criar o cadastro no banco!',
+                    message: 'Erro ao criar o cadastro no banco',
                     error: err
                 });
+            } else {
+                return res.cadastro(201).json({
+                    success: true,
+                    message: 'Cadastro cadastrado com sucesso no banco',
+                    data: data
+                });
             }
-
-            return res.status(201).json({
-                success: true,
-                message: 'Cadastro inserido com sucesso no banco!',
-                data: data
-            });
         })
     }
 }
