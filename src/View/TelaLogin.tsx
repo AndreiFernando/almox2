@@ -27,7 +27,7 @@ const TelaLogin = () => {
             placeholder='Usuario'
             KeyboardType='default'
             value={email}
-            property='senha'
+            property='email'
             onChangeText={onChange}
 
           />

@@ -6,6 +6,7 @@ import RouderdButton from '../components/botaoGeral';
 import { useNavigation } from '@react-navigation/native';
 import { RootStackParamList } from '../../App';
 import { StackNavigationProp } from '@react-navigation/stack';
+import axios from 'axios';
 
 const TelaCadastro = () => {
   const { nome, sobrenome, email, senha, confirmeSenha, onChange, register } = HomeViewModel();

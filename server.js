@@ -29,7 +29,7 @@ statusRoutes(app);
 cadastroRoutes(app);
 usuarioRoutes(app);
 
-server.listen(3000, /*'10.24.96.22'*/ '192.168.18.46' || 'localhost', function () {
+server.listen(3000, '10.24.96.22' || 'localhost', function () {
     console.log('teste' + process.pid + 'porta' + port + 'iniciada...');
 });
 

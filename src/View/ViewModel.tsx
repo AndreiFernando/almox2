@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+
+import { api } from "../services/api";
 const HomeViewModel = () => {
   const [values, setValues] = useState({
 
@@ -9,6 +11,7 @@ const HomeViewModel = () => {
     confirmeSenha: ''
 
   });
+  
 
   const onChange = (property: string, value: any) => {
     setValues({ ...values, [property]: value });
@@ -16,6 +19,14 @@ const HomeViewModel = () => {
 
   const register = () => {
     console.log(JSON.stringify(values))
+    api.post("/api/cadastro/create", {
+      email: values.email,
+      senha: values.senha,
+      nome: values.nome,
+      sobrenome: values.sobrenome,
+      confirmeSenha: values.confirmeSenha
+    })
+
   }
 
   return {

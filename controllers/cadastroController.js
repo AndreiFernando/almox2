@@ -9,13 +9,13 @@ module.exports = {
             data
         ) => {
             if (err) {
-                return res.cadastro(501).json({
+                return res.status(501).json({
                     success: false,
                     message: 'Erro ao criar o cadastro no banco',
                     error: err
                 });
             } else {
-                return res.cadastro(201).json({
+                return res.status(201).json({
                     success: true,
                     message: 'Cadastro cadastrado com sucesso no banco',
                     data: data
