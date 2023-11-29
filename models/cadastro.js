@@ -3,12 +3,13 @@ const db = require('../config/config');
 const Cadastro = {};
 
 Cadastro.create = (cadastro, result) => {
-    const sql = `INSERT INTO cadastro(nome, email, senha, confirmeSenha, idStatus) VALUES (?,?,?,?,?)`;
+    const sql = `INSERT INTO cadastro(nome, sobrenome, email, senha, confirmeSenha, idStatus) VALUES (?,?,?,?,?,?)`;
 
     db.query(
         sql,
         [
             cadastro.nome,
+            cadastro.sobrenome,
             cadastro.email,
             cadastro.senha,
             cadastro.confirmeSenha,
