@@ -2,12 +2,12 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons'; // Certifique-se de ter o pacote de ícones instalado
 
-export const Navbar = ({ username }) => {
+export const Navbar = () => {
     return (
         <View style={styles.container}>
             {/* Texto no canto inferior esquerdo */}
 
-            <Text style={styles.usuario}>Olá xxxxx {username},{'\n'}bem-vindo!</Text>
+            <Text style={styles.usuario}>Olá xxxxx,{'\n'}bem-vindo!</Text>
 
             {/* Ícone de usuário no canto superior direito */}
             <TouchableOpacity onPress={() => console.log('Abrir perfil')}>

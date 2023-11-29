@@ -32,14 +32,15 @@ const CustomTextInput = ({ placeholder, KeyboardType, value, property, secureTex
 }
 const styles = StyleSheet.create({
     container: {
-        alignSelf: 'center'
+        width: "100%",
+        alignSelf: 'center',
+        marginBottom: 30,
     },
     txtLabel: {
         fontSize: 16,
         color: 'white'
     },
     txtForm: {
-        width: 391,
         height: 50,
         borderRadius: 10,
         backgroundColor: 'white',

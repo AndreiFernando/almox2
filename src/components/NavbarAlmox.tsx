@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 
-export const Navbar = ({ onPressBack, onPressOption1, onPressOption2 }) => {
+export const NavbarAlmox = ({ onPressBack, onPressOption1, onPressOption2 }) => {
   const [selectedOption, setSelectedOption] = useState(null);
 
   const handlePressOption = (option) => {
@@ -77,4 +77,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Navbar;
+export default NavbarAlmox;

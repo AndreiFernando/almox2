@@ -1,81 +1,59 @@
-// BottomTabNavigator.js
-import React from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-//npm install @react-navigation/native @react-navigation/bottom-tabs
-
-//caminhos
-import Home from '../pages/Home';
-import Adicionar from '../pages/Adicionar';
-import Preferencias from '../pages/Preferencias';
+import React, { useState } from 'react';
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
-//npm install expo/vector-icons
+import { RootStackParamList } from '../../App';
 
-const Tab = createBottomTabNavigator();
 
-const BottomTabNavigator = () => {
+
+
+export const BottomTabNavigator = () => {
+  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
   return (
-    <Tab.Navigator
-      screenOptions={{
-        tabBarShowLabel: false,
-        tabBarStyle: {
-          backgroundColor: '#393E46',
-          borderTopWidth: 0,
-          borderRadius: 16,
-          borderBottomLeftRadius: 0,
-          borderBottomStartRadius: 0,
-          height: 60,
-          position: 'absolute',
-        },
-      }}
-    >
-      <Tab.Screen
-        name="Home"
-        component={Home}
-        options={{
-          headerShown: false,
-          tabBarIcon: ({ color, size, focused }) => {
-            if (focused) {
-              return <Ionicons name="home" size={25} color="#00ADB5" />;
-            }
-
-            return <Ionicons name="home-outline" size={25} color="#00ADB5" />;
-          },
-        }}
-      />
-
-      <Tab.Screen
-        name="Adicionar"
-        component={Adicionar}
-        options={{
-          headerShown: false,
-          tabBarIcon: ({ color, size, focused }) => {
-            if (focused) {
-              return <Ionicons name="add-circle" size={45} color="#00ADB5" />;
-            }
-
-            return (
-              <Ionicons name="add-circle-outline" size={45} color="#00ADB5" />
-            );
-          },
-        }}
-      />
-
-      <Tab.Screen
-        name="Preferencias"
-        component={Preferencias}
-        options={{
-          headerShown: false,
-          tabBarIcon: ({ color, size, focused }) => {
-            if (focused) {
-              return <Ionicons name="cog-outline" size={35} color="#00ADB5" />;
-            }
-
-            return <Ionicons name="cog" size={35} color="#00ADB5" />;
-          },
-        }}
-      />
-    </Tab.Navigator>
+    <View style={styles.tabBg}>
+      <View style={styles.tabContainer}>
+        <TouchableOpacity onPress={() => navigation.navigate('TelaHome')}>
+          <Text><Ionicons name="home" style={styles.tabIconHome} /></Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('TelaCadastro')}>
+          <Text><Ionicons name="add-circle" style={styles.tabIconAdicionar} /></Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('TelaAlmox')}>
+          <Text><Ionicons name="cog-outline" style={styles.tabIconAlmox} /></Text>
+        </TouchableOpacity>
+      </View>
+    </View>
   );
 };
-
-export default BottomTabNavigator;
+const styles = StyleSheet.create({
+  tabBg: {
+    backgroundColor: '#393E46',
+    bottom: 0,
+    borderRadius: 16,
+    borderBottomEndRadius: 0,
+    borderBottomStartRadius: 0,
+    width: "100%",
+    position: 'absolute',
+  },
+  tabContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    gap: 70,
+    alignItems: "center",
+    paddingTop: 5,
+    paddingBottom: 5,
+  },
+  tabIconHome: {
+    fontSize: 26,
+    color: "#00ADB5",
+  },
+  tabIconAlmox: {
+    fontSize: 34,
+    color: "#00ADB5",
+  },
+  tabIconAdicionar: {
+    fontSize: 45,
+    color: "#00ADB5",
+  },
+});

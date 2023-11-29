@@ -20,14 +20,12 @@ const RouderdButton = ( {onPress, lblButton}:Props ) => {
 
 const styles = StyleSheet.create({
     roudedButton:{
-        width: 391,
+        width: "100%",
         height: 50,
         backgroundColor: '#ffffff',
         borderRadius: 10,
         justifyContent: 'center',
         alignItems: 'center',
-        
-
     },
     
 
