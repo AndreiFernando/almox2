@@ -13,14 +13,15 @@ const TelaAlmox = () => {
       <NavbarEstoque onPressBack={() => navigation.navigate('TelaAlmox')}></NavbarEstoque>
       <View style={styles.container}>
         <ScrollView style={styles.itensContainer}>
-            <ItemLista onPress={}></ItemLista>
-            <ItemLista></ItemLista>
-            <ItemLista></ItemLista>
-            <ItemLista></ItemLista>
-            <ItemLista></ItemLista>
-            <ItemLista></ItemLista>
-            <ItemLista></ItemLista>
-            <ItemLista></ItemLista>
+            <ItemLista lblItem='Chave de Fenda'></ItemLista>
+            <ItemLista lblItem='Serra'></ItemLista>
+            <ItemLista lblItem='Furadeira'></ItemLista>
+            <ItemLista lblItem='Parafusadeira'></ItemLista>
+            <ItemLista lblItem='Serrote'></ItemLista>
+            <ItemLista lblItem='Broca'></ItemLista>
+            <ItemLista lblItem='Martelo'></ItemLista>
+            <ItemLista lblItem='Morsa'></ItemLista>
+            <ItemLista lblItem='Compressor'></ItemLista>
         </ScrollView>
       </View>
       <BottomTabNavigator></BottomTabNavigator>

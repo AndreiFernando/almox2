@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, TextInput } from 'react-native';
 import Modal from 'react-native-modal';
 import NumericInput from 'react-native-numeric-input';
+//npm install npm install react-native-numeric-input --save
 
 const ModalMenor = ({ isVisible, onClose }) => {
   const [item, setItem] = useState('');
   const [quantidade, setQuantidade] = useState(0);
 
   const toggleModal = () => {
-    onClose(item, quantidade);
+    onClose();
   };
 
   const handleButtonPress = () => {
