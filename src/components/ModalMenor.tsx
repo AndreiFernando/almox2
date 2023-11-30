@@ -3,27 +3,19 @@ import { View, Text, TouchableOpacity, StyleSheet, TextInput } from 'react-nativ
 import Modal from 'react-native-modal';
 import NumericInput from 'react-native-numeric-input';
 //npm install npm install react-native-numeric-input --save
+import { useNavigation } from '@react-navigation/native';
+import { RootStackParamList } from '../../App';
+import { StackNavigationProp } from '@react-navigation/stack';
 
-const ModalMenor = ({ isVisible, onClose }) => {
+const ModalMenor = ({ onClose }) => {
   const [item, setItem] = useState('');
   const [quantidade, setQuantidade] = useState(0);
 
-  const toggleModal = () => {
-    onClose();
-  };
-
-  const handleButtonPress = () => {
-    toggleModal();
-  };
-
+  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={toggleModal}>
-        <Text>ABRIR MODAL</Text>
-      </TouchableOpacity>
-
       <Modal
-        isVisible={isVisible}
+        isVisible={true}
         style={styles.modal}
         animationIn="slideInDown"
         animationOut="slideOutUp"
@@ -32,7 +24,7 @@ const ModalMenor = ({ isVisible, onClose }) => {
         <View style={styles.modalContent}>
           <View style={styles.header}>
             <Text style={styles.headerText}>Solicitações</Text>
-            <TouchableOpacity onPress={handleButtonPress} style={styles.closeButton}>
+            <TouchableOpacity onPress={() => navigation.navigate('TelaEstoque')} style={styles.closeButton}>
               <Text>X</Text>
             </TouchableOpacity>
           </View>
@@ -61,7 +53,7 @@ const ModalMenor = ({ isVisible, onClose }) => {
               leftButtonBackgroundColor='#00ADB5'
             />
 
-            <TouchableOpacity onPress={handleButtonPress} style={styles.modalButton}>
+            <TouchableOpacity onPress={() => navigation.navigate('TelaEstoque')} style={styles.modalButton}>
               <Text style={styles.modalButtonText}>Aplicar</Text>
             </TouchableOpacity>
           </View>

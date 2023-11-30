@@ -8,11 +8,10 @@ import { RootStackParamList } from '../../App';
 import { StackNavigationProp } from '@react-navigation/stack';
 
 interface ModalComponentProps {
-  isVisible: boolean;
   onClose: () => void;
 }
 
-const ModalComponent: React.FC<ModalComponentProps> = ({ isVisible, onClose }) => {
+const ModalComponent: React.FC<ModalComponentProps> = ({ onClose }) => {
   const [patrimonio, setPatrimonio] = useState('');
   const [possuiMaterial, setPossuiMaterial] = useState('');
   const [local, setLocal] = useState('');
@@ -22,13 +21,6 @@ const ModalComponent: React.FC<ModalComponentProps> = ({ isVisible, onClose }) =
   const [foto, setFoto] = useState('');
   const [criadoPor, setCriadoPor] = useState('');
 
-  const toggleModal = () => {
-    onClose();
-  };
-
-  const handleButtonPress = () => {
-    toggleModal();
-  };
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
   return (
     <View style={styles.container}>
