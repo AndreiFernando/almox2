@@ -6,8 +6,6 @@ import { Ionicons } from '@expo/vector-icons';
 import { RootStackParamList } from '../../App';
 
 
-
-
 export const BottomTabNavigator = () => {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
   return (
@@ -16,7 +14,7 @@ export const BottomTabNavigator = () => {
         <TouchableOpacity onPress={() => navigation.navigate('TelaHome')}>
           <Text><Ionicons name="home" style={styles.tabIconHome} /></Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('TelaCadastro')}>
+        <TouchableOpacity onPress={() => navigation.navigate('ModalComponent')}>
           <Text><Ionicons name="add-circle" style={styles.tabIconAdicionar} /></Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate('TelaAlmox')}>

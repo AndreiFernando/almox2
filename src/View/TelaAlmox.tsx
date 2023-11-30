@@ -1,6 +1,7 @@
-import { StyleSheet, Text, View, } from 'react-native';
+import { StyleSheet,  View, } from 'react-native';
 import { NavbarAlmox } from '../components/NavbarAlmox'
 import { BottomTabNavigator } from '../components/BottomTabNavigator';
+import { BotaoManutencao } from '../components/BtnManuten';
 import { useNavigation } from '@react-navigation/native';
 import { RootStackParamList } from '../../App';
 import { StackNavigationProp } from '@react-navigation/stack';
@@ -14,6 +15,10 @@ const TelaAlmox = () => {
         onPressOption2={() => navigation.navigate('TelaAlmox')}></NavbarAlmox>
       <View style={styles.container}>
 
+      <BotaoManutencao lblButton='Ferramentas' onPress={() => navigation.navigate('TelaEstoque')}></BotaoManutencao>
+      <BotaoManutencao lblButton='Materiais de consumo' onPress={() => navigation.navigate('TelaEstoque')}></BotaoManutencao>
+      <BotaoManutencao lblButton='Materiais de fixação' onPress={() => navigation.navigate('TelaEstoque')}></BotaoManutencao>
+      <BotaoManutencao lblButton='Elétricos' onPress={() => navigation.navigate('TelaHome')}></BotaoManutencao>
 
       </View>
       <BottomTabNavigator></BottomTabNavigator>
@@ -28,38 +33,8 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
+    justifyContent: "center",
     marginHorizontal: 10,
-  },
-  calendarioInfo: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 20,
-    marginHorizontal: 30,
-  },
-  calendarioData: {
-    fontSize: 20,
-    color: '#383838',
-  },
-  calendarioVerMais: {
-    fontSize: 20,
-    color: '#383838',
-    fontWeight: '500'
-  },
-  calendarioContainer: {
-    backgroundColor: '#EEEEEE',
-    borderRadius: 25,
-    paddingTop: 10,
-    paddingBottom: 10,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 20,
-    marginBottom: 20,
-  },
-  tarefasContainer: {
-    marginLeft: 80,
-    marginBottom: 45,
   },
 });
 export default TelaAlmox;

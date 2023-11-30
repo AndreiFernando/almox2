@@ -29,11 +29,8 @@ const TelaLogin = () => {
             value={email}
             property='email'
             onChangeText={onChange}
-
           />
-        </View>
-        <View>
-          <CustomTextInput
+           <CustomTextInput
             placeholder='Senha'
             KeyboardType='default'
             value={senha}
@@ -42,7 +39,6 @@ const TelaLogin = () => {
 
           />
         </View>
-
         <View style={styles.containerCheck}>
           <CheckBox
             title="Lembrar usuario"
@@ -60,7 +56,7 @@ const TelaLogin = () => {
         <View style={styles.botaoGeral}>
           <RouderdButton
             lblButton='Login'
-            onPress={() => register()} />
+            onPress={() => {register(); navigation.navigate('TelaHome')}} />
         </View>
 
         <View style={styles.containerTexto}>
@@ -82,20 +78,15 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#00ADB5',
     flex: 1,
-  
   },
   containerLogo: {
     alignItems: 'center',
     paddingTop: 90
-
-
   },
   logo: {
     width: 224,
     height: 176,
-
   },
-  
   texto: {
     color: 'white',
     fontWeight: 'bold',
@@ -105,10 +96,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    width: 391,
+    width: "95%",
     alignSelf: 'center',
-   
-
   },
 
   checkbox: {
@@ -120,7 +109,9 @@ const styles = StyleSheet.create({
   },
   botaoGeral: {
     alignItems: 'center',
-    padding: 100
+    marginTop: 100,
+    marginBottom: 30,
+    marginHorizontal: 10,
   },
   containerTexto: {
     alignItems: 'center'
@@ -130,7 +121,7 @@ const styles = StyleSheet.create({
     color: 'white'
   },
   inputs: {
-    padding: 30
+    marginHorizontal: 10,
   }
 
 });

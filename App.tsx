@@ -5,6 +5,8 @@ import TelaLogin from './src/view/TelaLogin';
 import TelaCadastro from './src/view/TelaCadastro';
 import TelaHome from './src/view/TelaHome';
 import TelaAlmox from './src/view/TelaAlmox';
+import TelaEstoque from './src/view/TelaEstoque';
+import ModalComponent from "./src/components/ModalComponent";
 import { StackNavigationProp } from '@react-navigation/stack';
 
 export type RootStackParamList = {
@@ -12,6 +14,8 @@ export type RootStackParamList = {
   TelaCadastro: undefined,
   TelaHome: undefined,
   TelaAlmox: undefined,
+  TelaEstoque: undefined,
+  ModalComponent: undefined,
 }
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -41,6 +45,18 @@ const App = () => {
         <Stack.Screen
           name='TelaAlmox'
           component={TelaAlmox}
+          options={{
+            headerShown: false,
+          }} />
+        <Stack.Screen
+          name='ModalComponent'
+          component={ModalComponent}
+          options={{
+            headerShown: false,
+          }} />
+        <Stack.Screen
+          name='TelaEstoque'
+          component={TelaEstoque}
           options={{
             headerShown: false,
           }} />

@@ -5,9 +5,12 @@ import { BtnCalendarioAtivo } from '../components/BtnCalendarioAtivo';
 import { TarefaAtiva } from '../components/TarefaAtiva';
 import { Tarefa } from '../components/Tarefa';
 import { BottomTabNavigator } from '../components/BottomTabNavigator';
+import { useNavigation } from '@react-navigation/native';
+import { RootStackParamList } from '../../App';
+import { StackNavigationProp } from '@react-navigation/stack';
 
 const TelaHome = () => {
-
+  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
   return (
     <View style={styles.body}>
       <Navbar></Navbar>

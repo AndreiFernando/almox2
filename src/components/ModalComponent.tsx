@@ -3,6 +3,9 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, TextInput } from 'react-native';
 import Modal from 'react-native-modal';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { useNavigation } from '@react-navigation/native';
+import { RootStackParamList } from '../../App';
+import { StackNavigationProp } from '@react-navigation/stack';
 
 interface ModalComponentProps {
   isVisible: boolean;
@@ -26,11 +29,11 @@ const ModalComponent: React.FC<ModalComponentProps> = ({ isVisible, onClose }) =
   const handleButtonPress = () => {
     toggleModal();
   };
-
+  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
   return (
     <View style={styles.container}>
       <Modal
-        isVisible={isVisible}
+        isVisible={true}
         style={styles.modal}
         animationIn="slideInDown"
         animationOut="slideOutUp"
@@ -39,7 +42,7 @@ const ModalComponent: React.FC<ModalComponentProps> = ({ isVisible, onClose }) =
         <View style={styles.modalContent}>
           <View style={styles.header}>
             <Text style={styles.headerText}>Solicitações</Text>
-            <TouchableOpacity onPress={handleButtonPress} style={styles.closeButton}>
+            <TouchableOpacity onPress={() => navigation.navigate('TelaHome')} style={styles.closeButton}>
               <Text>X</Text>
             </TouchableOpacity>
           </View>
@@ -135,7 +138,7 @@ const ModalComponent: React.FC<ModalComponentProps> = ({ isVisible, onClose }) =
               </View>
             </View>
 
-            <TouchableOpacity onPress={handleButtonPress} style={styles.modalButton}>
+            <TouchableOpacity onPress={() => navigation.navigate('TelaHome')} style={styles.modalButton}>
               <Text style={styles.modalButtonText}>Aplicar</Text>
             </TouchableOpacity>
           </View>

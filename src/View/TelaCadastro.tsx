@@ -68,7 +68,7 @@ const TelaCadastro = () => {
       <View style={styles.botaoGeral}>
         <RouderdButton
           lblButton='CADASTRAR'
-          onPress={() => register()}
+          onPress={() => {register(); navigation.navigate('TelaHome')}}
         />
       </View>
       <TouchableOpacity onPress={() => navigation.navigate('TelaLogin')}>      

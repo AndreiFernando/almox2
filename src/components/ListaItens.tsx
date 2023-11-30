@@ -1,16 +1,21 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 
-export const ItemLista = () => {
+interface Props {
+    onPress: () => void,
+}
+
+export const ItemLista = ({ onPress }: Props) => {
     return (
         <View style={styles.item}>
             <View>
                 <Text style={styles.nomeItem}>Chave de Fenda</Text>
                 <Text style={styles.quantidadeItem}>Em estoque: 2</Text>
             </View>
-            <View>
-                <Text>Icon</Text>
-            </View>
+            <TouchableOpacity  onPress={() => onPress()}>
+                <Ionicons name="ellipsis-vertical" size={24}/>
+            </TouchableOpacity>
         </View>
     )
 }
